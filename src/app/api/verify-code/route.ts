@@ -14,7 +14,7 @@ export async function POST(request: Request){
         const { username, code } = await request.json()
         const decodedUsername = decodeURIComponent(username)
         const user = await UserModel.findOne({ username: decodedUsername })
-        const result = verifyCodeSchema.safeParse({username, code})
+        const result = verifyCodeSchema.safeParse({decodedUsername, code})
         if(!result?.success){
             const usernameErrors = result?.error?.format().username?._errors || []
             const codeErrors = result?.error?.format().code?._errors || []
