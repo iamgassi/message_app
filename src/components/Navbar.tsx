@@ -10,7 +10,7 @@ const Navbar = () => {
     return (
     <nav className='p-4 md:p-6'>
         <div className='container mx-auto flex md:flex-grow justify-between items-center'>
-            <Link className='text-xl font-bold mb-4 md:mb-0' href={`#`}>Mystry Message</Link>
+            <Link className='text-xl font-bold mb-4 md:mb-0' href={`/dashboard`}>Mystry Message</Link>
             {
                 session ? (
                     <>
