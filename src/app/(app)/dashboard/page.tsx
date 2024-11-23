@@ -108,7 +108,7 @@ const DashBoard = () => {
           const profileUrl = `${baseUrl}/u/${session?.user?.username}`;
           setProfileUrl(profileUrl);
         }
-      }, [session?.user]);
+    }, [session?.user]);
       
     const copyToClipboard = () => {
         if(!session?.user) return

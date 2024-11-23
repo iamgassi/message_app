@@ -16,7 +16,7 @@ const Navbar = () => {
                     <>
                         <span className='mr-4'>Welcome, {user?.username}</span>
                         <Link className='mr-4' href={'/'}>
-                            <Button className='w-full md:w-auto' onClick={()=>signOut}>Sign out</Button> 
+                            <Button className='w-full md:w-auto' onClick={()=>signOut()}>Sign out</Button> 
                         </Link>
                     </>
                 ) : (

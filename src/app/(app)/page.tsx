@@ -18,6 +18,7 @@ import axios, { AxiosError } from 'axios';
 import { ApiResponse } from '@/types/apiResponse';
 import { Loader2 } from 'lucide-react';
 import { useDebounceCallback } from 'usehooks-ts';
+import DashBoard from './dashboard/page';
 
 export default function HomePage() {
   const [username, setUsername] = useState('');
@@ -95,6 +96,10 @@ export default function HomePage() {
       setIsSubmitting(false)
     }
   };
+
+  if(session && session?.user){
+    router.replace('/dashboard')
+  }
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
