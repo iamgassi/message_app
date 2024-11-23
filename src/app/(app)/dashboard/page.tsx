@@ -1,5 +1,6 @@
 'use client'
 import MessageCard from "@/components/MessageCard"
+import Navbar from "@/components/Navbar"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { Switch } from "@/components/ui/switch"
@@ -125,6 +126,7 @@ const DashBoard = () => {
 
     return (
     <>
+        <Navbar/>
         <div className="my-8 mx-4 md:mx-8 lg:mx-auto p-6 bg-white rounded w-full max-w-6xl">
             <h1 className="text-4xl font-bold mb-4">User Dashboard</h1>
             <div className="mb-4">

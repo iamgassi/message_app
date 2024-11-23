@@ -11,6 +11,7 @@ import axios, { AxiosError } from 'axios'
 import { ApiResponse } from '@/types/apiResponse'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Button } from "@/components/ui/button"
+import Navbar from '@/components/Navbar'
 
 const Page = () =>{
     const params = useParams()
@@ -32,7 +33,8 @@ const Page = () =>{
                 title: 'Success',
                 description: response.data.message
             })
-            // router.replace('/sign-in')
+             // Reset the content field after successful submission
+             form.setValue('content', '')
         } catch (error) {
             const axiosError = error as AxiosError<ApiResponse>
             let errorMessage = axiosError.response?.data.message ??  "Error in sending message"
@@ -43,36 +45,36 @@ const Page = () =>{
             })
         }
     }
-    return (
-    <div className='container m-16'>
-        <p className='my-4'>
-            Hi, <span className='capitalize font-bold'>{params?.username} </span> Here , Please write your Message for me secretly.
-        </p>
-        <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} 
-                 className="space-y-6"
-                >
-                <FormField
-                    control={form.control}
-                    name="content"
-                    render={({ field }) => (
-                    <FormItem>
-                    <FormLabel>Message for me</FormLabel>
-                    <FormControl>
-                        {/* <Input placeholder="code" {...field} /> */}
-                        <Textarea {...field} placeholder="Type your message here." />
-                    </FormControl>
-                    <FormMessage />
-                    </FormItem>
-                   )}
-                />
-                <Button type="submit">
-                   Submit
-                </Button>
-                </form>
-            </Form>
+    return (<>
+        <Navbar/>
+        <div className='container m-16'>
+            <p className='my-4'>
+                Hi, <span className='capitalize font-bold'>{params?.username} </span> Here , Please write your Message for me secretly.
+            </p>
+            <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} 
+                    className="space-y-6"
+                    >
+                    <FormField
+                        control={form.control}
+                        name="content"
+                        render={({ field }) => (
+                        <FormItem>
+                        <FormLabel>Message for me</FormLabel>
+                        <FormControl>
+                            {/* <Input placeholder="code" {...field} /> */}
+                            <Textarea {...field} placeholder="Type your message here." />
+                        </FormControl>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                    <Button type="submit"> Submit </Button>
+                    </form>
+                </Form>
 
-    </div>)
+        </div>
+    </>)
 }
 
 export default Page
