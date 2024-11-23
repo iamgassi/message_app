@@ -150,13 +150,13 @@ const DashBoard = () => {
                 className="mt-4"
                 variant="outline"
                 onClick={(e) => {
-                e.preventDefault()
-                fetchMessages (true)
-            }}>
+                    e.preventDefault()
+                    fetchMessages(true)
+                }}>
                 {isLoading? (
-                <Loader2 className="h-4 w-4 animate-spin" />
+                    <Loader2 className="h-4 w-4 animate-spin" />
                 ): (
-                <RefreshCcw className="h-4 w-4" />
+                     <RefreshCcw className="h-4 w-4" />
                 )}
             </Button>
             <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
